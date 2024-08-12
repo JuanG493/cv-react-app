@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 import DateC from "./date";
 
 let nextId = 1;
@@ -66,25 +68,30 @@ export default function Education() {
                     handlerChange={handelerChange}
                 ></DateC>
 
-                <label>Grade: </label>
-                <input
-                    type="text"
-                    value={record.grade}
-                    onChange={(e) => handelerChange(e.target.value, 'grade')}>
-                </input>
-                <label>Institution: </label>
-                <input
-                    type="text"
-                    value={record.college}
-                    onChange={(e) => handelerChange(e.target.value, 'college')}>
-                </input>
+                <Form.Group className="mb-2" >
+                    <Form.Label>Grade</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={record.grade}
+                        placeholder="grade"
+                        onChange={e => handelerChange(e.target.value, 'grade')} />
+                </Form.Group>
+
+                <Form.Group className="mb-2" >
+                    <Form.Label>Institution</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={record.college}
+                        placeholder="college"
+                        onChange={e => handelerChange(e.target.value, 'college')} />
+                </Form.Group>
 
                 <BuildItem
                     listItems={listRecords}
                     onDelete={handleDelete}
                     onEdit={handleEdit}
                 ></BuildItem>
-                <button onClick={handleOnClick}>Add Record</button>
+                <Button className="m-2" onClick={handleOnClick}>Add Record</Button>
 
             </div>
             <Veducation
@@ -102,8 +109,8 @@ function BuildItem({ listItems, onDelete, onEdit }) {
                 return (
                     <li key={item.id}>
                         {item.grade} | {item.college} {formatDate}
-                        <button onClick={() => onDelete(item.id)}>Delete</button>
-                        <button onClick={() => onEdit(item)}>Edit</button>
+                        <Button variant="secondary" className="m-2" onClick={() => onDelete(item.id)}>Delete</Button>
+                        <Button variant="secondary" className="m-2" onClick={() => onEdit(item)}>Edit</Button>
                     </li>
                 )
             })}

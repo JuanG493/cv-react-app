@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Button } from "react-bootstrap";
+import Accordion from 'react-bootstrap/Accordion';
+import Form from 'react-bootstrap/Form';
 import DateC from "./date";
 import SetItems from "./setItems";
 import VisualItems from "./visualItems";
@@ -69,27 +72,39 @@ export default function CarrerSumary() {
                         handlerChange={handlerDate}
                     ></DateC>
                 </div>
-                <label>Position in company </label>
-                <input
-                    type="text"
-                    value={careerExp.position}
-                    onChange={(e) => handelerChange(e.target.value, 'position')}>
-                </input>
-                <label>Company Name: </label>
-                <input
-                    type="text"
-                    value={careerExp.company}
-                    onChange={(e) => handelerChange(e.target.value, 'company')}>
-                </input>
-                <label>City: </label>
-                <input
-                    type="text"
-                    value={careerExp.city}
-                    onChange={(e) => handelerChange(e.target.value, 'city')}>
-                </input>
+
+                <Form.Group className="mb-2" >
+                    <Form.Label>Position in company</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={careerExp.position}
+                        placeholder="position"
+                        onChange={e => handelerChange(e.target.value, 'position')} />
+                </Form.Group>
+
+                <Form.Group className="mb-2" >
+                    <Form.Label>Company Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={careerExp.company}
+                        placeholder="company name"
+                        onChange={e => handelerChange(e.target.value, 'company')} />
+                </Form.Group>
+
+                <Form.Group className="mb-2" >
+                    <Form.Label>City</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={careerExp.city}
+                        placeholder="city"
+                        onChange={e => handelerChange(e.target.value, 'city')} />
+                </Form.Group>
+
+
                 <div>
                     <label>Outline: </label>
-                    <textarea value={careerExp.outline}
+                    <textarea value={careerExp.outline} cols={50} rows={3}
+                        placeholder="resume"
                         onChange={(e) => handelerChange(e.target.value, 'outline')}>
                     </textarea>
                 </div>
@@ -108,10 +123,10 @@ export default function CarrerSumary() {
                     objTarget={careerExp.achievements}
                 >
                 </SetItems>
-                <button onClick={handleOnClick}>Add summary</button>
-                <BuiltItems
+                <Button className="mb-3" onClick={handleOnClick}>Add summary</Button>
+                <BuiltItems2
                     listItems={listCareerExperience} >
-                </BuiltItems>
+                </BuiltItems2>
             </div>
 
             <VisualExperience
@@ -155,5 +170,41 @@ export default function CarrerSumary() {
             </div>
         )
     }
-}
 
+    function BuiltItems2({ listItems: listCareerExp }) {
+        let nextId = 1;
+        return (
+            <Accordion >
+                {listCareerExp.map(careerExp => {
+                    return (
+                        <Accordion.Item eventKey={careerExp.id}>
+                            <Accordion.Header>{careerExp.outline.substr(0, 5)}...</Accordion.Header>
+                            <Accordion.Body key={nextId++}>
+                                <li>
+                                    date: {careerExp.from} - {careerExp.to}
+                                    <br></br>
+                                    company: {careerExp.company} city : {careerExp.city}
+                                    <br></br>
+                                    position: {careerExp.position}
+                                    <br></br>
+                                    outLine: {careerExp.outline}
+                                    <br></br>
+                                    <VisualItems
+                                        listElements={careerExp.responsabilities}
+                                        text={"responsabilities"}
+                                    ></VisualItems>
+                                    <VisualItems
+                                        listElements={careerExp.achievements}
+                                        text={"achievements"}
+                                    ></VisualItems>
+                                </li>
+                                <button onClick={() => handleDeleteExp(careerExp.id)} >Delete</button>
+                                <button onClick={() => handleEditExp(careerExp.id)} >Edit</button>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    )
+                })}
+            </Accordion>
+        )
+    }
+}

@@ -16,7 +16,7 @@ export default function Skills() {
             <div className="wokZone">
                 <h2>Add your skills</h2>
                 <SetItems
-                    textLabel={'skill: '}
+                    textLabel={'skill '}
                     fillFunc={handleOnClick}
                     objTarget={skills}
                 ></SetItems>

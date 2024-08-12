@@ -1,9 +1,9 @@
 
+import Form from 'react-bootstrap/Form';
 import CarrerSumary from "./carrerSumarry";
 import Skills from "./coreSkills";
 import Education from "./education";
 import PersonalInfo from "./personalInfo";
-
 
 
 export default function Person() {
@@ -13,16 +13,18 @@ export default function Person() {
     }
 
     return (
-        <div>
-            <h1 className="mainHeader">Build your CV</h1>
-            <form onSubmit={handleSubmit}>
+        <div className='mainContainer'>
+            <Form onSubmit={handleSubmit} >
+                <div className="mainHeader">
+                    <h1 >Build your CV</h1>
+                </div>
                 <PersonalInfo></PersonalInfo>
                 <Skills></Skills>
                 <CarrerSumary></CarrerSumary>
                 <Education></Education>
-                <button>Send</button>
+   
 
-            </form>
+            </Form>
         </div>
     )
 }

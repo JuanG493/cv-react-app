@@ -1,16 +1,18 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+
 
 let nextId = 1;
 
-export default function SetItems({ textLabel, objPropertie, fillFunc, objTarget}) {
+export default function SetItems({ textLabel, objPropertie, fillFunc, objTarget }) {
     const [elements, setElements] = useState(objTarget);
     const [currentV, setCurrentV] = useState('');
 
     //let reset the state if a new objTarget it´s pass
-    if(objTarget != elements){
+    if (objTarget != elements) {
         setElements(objTarget)
     }
-    
+
 
     function handleOnClick() {
         let newElemnts = ([
@@ -43,13 +45,13 @@ export default function SetItems({ textLabel, objPropertie, fillFunc, objTarget}
                 onChange={e => setCurrentV(e.target.value)}>
             </input>
 
-            <button onClick={handleOnClick}>add</button>
+            <Button onClick={handleOnClick} className="addBtn">add</Button>
             <ul>
                 {elements != undefined ? (elements.map((s) => {
                     return (
                         <li key={s.id}>{s.value}
-                            <button onClick={() => handleDelete(s.id)}>Delete</button>
-                            <button onClick={() => handleEdit(s)}>Edit</button>
+                            <Button className="m-1" variant="secondary" onClick={() => handleDelete(s.id)}>Delete</Button>
+                            <Button className="m-1" variant="secondary" onClick={() => handleEdit(s)}>Edit</Button>
                         </li>)
                 })) : <></>
                 }
