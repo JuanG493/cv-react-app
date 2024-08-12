@@ -13,6 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -65,4 +67,50 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+.finalV{
+  /* background-color: green; */
+}
+
+.mainHeader{
+  text-align: center;
+}
+
+.zone{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.workZone{
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  
+}
+.showZone{
+  grid-column: 2 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: solid green 4px;
+
+}
+
+.headZone{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.personal{
+  /* display: inline-block; */
+  width: 24px;
+  height: 24px;
+  background-image: url('/src/assets/icons/profile.png');
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
 }
