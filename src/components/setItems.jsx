@@ -49,7 +49,7 @@ export default function SetItems({ textLabel, objPropertie, fillFunc, objTarget 
             <ul>
                 {elements != undefined ? (elements.map((s) => {
                     return (
-                        <li key={s.id}>{s.value}
+                        <li key={s.id} className="variusItems">{s.value.substr(0,5).padEnd(8, "...")} 
                             <Button className="m-1" variant="secondary" onClick={() => handleDelete(s.id)}>Delete</Button>
                             <Button className="m-1" variant="secondary" onClick={() => handleEdit(s)}>Edit</Button>
                         </li>)

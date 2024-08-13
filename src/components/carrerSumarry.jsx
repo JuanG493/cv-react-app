@@ -8,6 +8,7 @@ import VisualItems from "./visualItems";
 import VisualExperience from "./visualizationCarrerSumarry";
 
 let nextId = 0;
+let nextIdAccordion = 1;
 const experience = {
     id: 0,
     position: '',
@@ -100,14 +101,12 @@ export default function CarrerSumary() {
                         onChange={e => handelerChange(e.target.value, 'city')} />
                 </Form.Group>
 
-
-                <div>
-                    <label>Outline: </label>
-                    <textarea value={careerExp.outline} cols={50} rows={3}
-                        placeholder="resume"
-                        onChange={(e) => handelerChange(e.target.value, 'outline')}>
-                    </textarea>
-                </div>
+                <Form.Group className="mb-2" >
+                    <Form.Label>Outline</Form.Label>
+                    <Form.Control as={"textarea"} rows={3} value={careerExp.outline}
+                        onChange={(e) => handelerChange(e.target.value, 'outline')}
+                    ></Form.Control>
+                </Form.Group>
 
                 <SetItems
                     textLabel={'Key responsabilities'}
@@ -177,8 +176,8 @@ export default function CarrerSumary() {
             <Accordion >
                 {listCareerExp.map(careerExp => {
                     return (
-                        <Accordion.Item eventKey={careerExp.id}>
-                            <Accordion.Header>{careerExp.outline.substr(0, 5)}...</Accordion.Header>
+                        <Accordion.Item eventKey={careerExp.id} key={nextIdAccordion++}>
+                            <Accordion.Header>{careerExp.outline.substr(0, 50)}...</Accordion.Header>
                             <Accordion.Body key={nextId++}>
                                 <li>
                                     date: {careerExp.from} - {careerExp.to}
@@ -192,11 +191,11 @@ export default function CarrerSumary() {
                                     <VisualItems
                                         listElements={careerExp.responsabilities}
                                         text={"responsabilities"}
-                                    ></VisualItems>
+                                        ></VisualItems>
                                     <VisualItems
                                         listElements={careerExp.achievements}
                                         text={"achievements"}
-                                    ></VisualItems>
+                                        ></VisualItems>
                                 </li>
                                 <button onClick={() => handleDeleteExp(careerExp.id)} >Delete</button>
                                 <button onClick={() => handleEditExp(careerExp.id)} >Edit</button>

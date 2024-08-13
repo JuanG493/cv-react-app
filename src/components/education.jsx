@@ -108,7 +108,7 @@ function BuildItem({ listItems, onDelete, onEdit }) {
                 let formatDate = item.to != "" && item.from != "" ? <span> | {item.from}-{item.to}</span> : <></>;
                 return (
                     <li key={item.id}>
-                        {item.grade} | {item.college} {formatDate}
+                         {item.college} {formatDate}
                         <Button variant="secondary" className="m-2" onClick={() => onDelete(item.id)}>Delete</Button>
                         <Button variant="secondary" className="m-2" onClick={() => onEdit(item)}>Edit</Button>
                     </li>
@@ -121,7 +121,10 @@ function BuildItem({ listItems, onDelete, onEdit }) {
 function Veducation({ records }) {
     return (
         <div className="finalV showZone">
-            <h1> Education</h1>
+            <div className="headZone">
+                <span className="icon educationI"></span>
+                <h1> Education</h1>
+            </div>
             <ul>
                 {records.map(item => {
                     let formatDate = item.to != "" && item.from != "" ? <span> | {item.from}-{item.to}</span> : <></>;

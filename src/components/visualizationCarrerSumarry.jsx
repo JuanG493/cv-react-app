@@ -4,7 +4,10 @@ export default function VisualExperience({ listExp }) {
 
     return (
         <div className="finalV showZone">
-            <h1> Career Summary</h1>
+            <div className="headZone">
+                <span className="icon summaryI"></span>
+                <h1> Career Summary</h1>
+            </div>
             {listExp.map(exp => {
                 return (
                     <div key={exp.id}>
@@ -28,7 +31,7 @@ export default function VisualExperience({ listExp }) {
                                 listElements={exp.responsabilities}
                                 text={"key Responsabilities"}
                             ></VisualItems>
-                            
+
                         </div>
                         <div>
                             <h5><i></i></h5>
@@ -36,7 +39,7 @@ export default function VisualExperience({ listExp }) {
                                 listElements={exp.achievements}
                                 text={"key Achievements"}
                             ></VisualItems>
-                            
+
                         </div>
                     </div>
                 )

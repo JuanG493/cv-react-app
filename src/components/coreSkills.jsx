@@ -22,7 +22,11 @@ export default function Skills() {
                 ></SetItems>
             </div>
             <div className="finalV showZone">
-                <h1> Core Skills </h1>
+
+                <div className="headZone">
+                    <span className="icon coreI"></span>
+                    <h1> Core Skills </h1>
+                </div>
                 <VisualItems
                     listElements={skills}>
                 </VisualItems>

@@ -6,11 +6,11 @@ export default function DateC({ objTarget, handlerChange }) {
         <>
             <Form.Group className="mb-2" >
                 <Form.Label>From:</Form.Label>
-                <Form.Control type="date" onChange={(e) => handlerChange(e.target.value, 'from')} />
+                <Form.Control type="date" value={objTarget.from} onChange={(e) => handlerChange(e.target.value, 'from')} />
             </Form.Group>
             <Form.Group className="mb-2" >
                 <Form.Label>To:</Form.Label>
-                <Form.Control type="date" onChange={(e) => handlerChange(e.target.value, 'to')} />
+                <Form.Control type="date" value={objTarget.to} onChange={(e) => handlerChange(e.target.value, 'to')} />
             </Form.Group>
         </>
     )

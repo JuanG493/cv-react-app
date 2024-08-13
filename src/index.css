@@ -2,71 +2,132 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  /* color-scheme: dark; */
-  /* co */
-  background-color: #242424;
 }
 
 
-.mainContainer{
+.mainContainer {
   display: grid;
   grid-template-columns: 10% 80% 10%;
-
 }
-form{
+
+form {
   grid-column: 2 / 3;
-
 }
-.addBtn{
+
+.addBtn {
   margin-left: 10px;
-  /* background-color: #6610f2; */
 }
 
-.finalV{
-  /* background-color: green; */
-}
-
-.mainHeader{
+.mainHeader {
   text-align: center;
   margin: 20px 0px;
-  background-color:#6610f2;
+  background-color: #6610f2;
   padding: 2px;
-  color: aliceblue;
+  color: #FCF651;
+  border-radius: 10px;
 }
 
-.zone{
+.zone {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.workZone{
+.workZone {
   grid-column: 1 / 2;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  
 }
-.showZone{
+
+.showZone {
   grid-column: 2 / 4;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  border-left: solid #6610f2 4px;
-  border-right: solid #6610f2 4px;
-
+  justify-content: space-evenly;
+  background-color: #FCF651;
+  border-left: solid #6610f2 5px;
 }
 
-.headZone{
+.headZone {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.iconP{
-  width: 24px;
-  height: 24px;
-  background-image: url('/src/assets/icons/profile.png');
+.icon {
+  width: 30px;
+  height: 30px;
   background-size: contain;
+  margin: 0px 5px;
 }
 
+.personalI {
+  background-image: url('/src/assets/icons/profile.png');
+
+}
+
+.coreI {
+  background-image: url('/src/assets/icons/skills.png');
+}
+
+.summaryI {
+  background-image: url('/src/assets/icons/career.png');
+}
+
+.educationI {
+  background-image: url('/src/assets/icons/education.png');
+}
+
+.telI {
+  background-image: url('/src/assets/icons/phone-call.png');
+}
+
+.emailI {
+  background-image: url('/src/assets/icons/mail.png');
+}
+
+.cityI {
+  background-image: url('/src/assets/icons/worldwide.png');
+}
+
+.linkI {
+  background-image: url('/src/assets/icons/social.png');
+}
+
+.variusItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media only screen and (max-device-width:800px) {
+
+  .zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headZone {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showZone {
+    width: 100%;
+    padding: 5%;
+    border-left: none;
+    border-bottom: solid #6610f2 3px;
+    margin-bottom: 2px;
+    background-color: white;
+  }
+
+}
